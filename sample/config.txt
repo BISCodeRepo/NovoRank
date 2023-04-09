@@ -1,11 +1,4 @@
--------------------------------------------------------------------------------------------------------
-
-precusor_search_ppm = 20
-elution_time = 240 # for normalize
-
-training = False #  train : True / test : False
-
-save_path = .\sample\save
+-----------------------------------   main.py   ------------------------------------------
 
 # MGF information
 mgf_path = .\sample\mgf
@@ -24,7 +17,15 @@ db_result = .\sample\db_sample.csv
 # Feature name
 features = feature.csv
 
------------------------------------ After calculating XCorr -----------------------------------------
+save_path = .\sample\save
+
+precusor_search_ppm = 20
+
+elution_time = 240 # for normalize
+
+training = False # train : True / test : False
+
+-----------------------------------   main_2.py   -----------------------------------------
 
 # XCorr results
 xcorr_path = .\sample\xcorr
