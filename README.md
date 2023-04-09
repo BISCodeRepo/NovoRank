@@ -5,8 +5,12 @@ NovoRank is a machine learning/deep learning-based algorithm that post-processes
 
 Python 3.x \
 Numpy 1.21.0 \
+Numba \
 Pandas \
 DeepLC ( https://github.com/compomics/DeepLC )
+
+Scikit-learn \
+Tensorflow
 
 ## How to use NovoRank?
 
