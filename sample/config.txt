@@ -1,0 +1,43 @@
+-------------------------------------------------------------------------------------------------------
+
+precusor_search_ppm = 20
+elution_time = 240 # for normalize
+
+training = False #  train : True / test : False
+
+save_path = .\sample\save
+
+# MGF information
+mgf_path = .\sample\mgf
+mgf_csv = mgf.csv
+
+# Cluster
+cluster_result_path = .\sample\cluster
+cluster_csv = cluster.csv
+
+# De novo search
+denovo_result = .\sample\de_novo_sample.csv
+
+# DB search # use only training
+db_result = .\sample\db_sample.csv
+
+# Feature name
+features = feature.csv
+
+----------------------------------- After calculating XCorr -----------------------------------------
+
+# XCorr results
+xcorr_path = .\sample\xcorr
+xcorr_csv = xcorr.csv
+
+# Candidates
+num = 1 # 10 (X)
+
+# Deep Learnig
+pre_trained_model = 'NovoRank.h5'
+
+val_size = 0.2
+epoch = 50
+batch_size = 64
+
+early_stopping = True # False
