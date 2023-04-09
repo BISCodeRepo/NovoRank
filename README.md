@@ -16,7 +16,9 @@ Tensorflow
 
 NovoRank performs three steps to obtain result, and you can test it using the sample data and pre-trained model provided on Github and https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link.
 
-After downloading all the sample data, collect them in a folder named "sample" obtained from GitHub, and perform the test.
+- Example of running NovoRank 
+
+After downloading all the sample data, collect them in a folder named "sample" obtained from GitHub, and run NovoRank.
 
 <br/>
 
