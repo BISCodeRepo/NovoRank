@@ -14,8 +14,9 @@ Tensorflow
 
 ## How to use NovoRank?
 
-NovoRank performs three steps to obtain result, and you can test it using the sample data and pre-trained model provided on Github. \
-can be downloaded from here :
+NovoRank performs three steps to obtain result, and you can test it using the sample data and pre-trained model provided on Github and https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link.
+
+After downloading all the sample data, collect them in a folder named "sample" obtained from GitHub, and perform the test.
 
 <br/>
 
@@ -25,7 +26,7 @@ and perform clustering using MS-cluster software
 
 **- config.txt**
 
-All other options can be found in "deepnovo_config.py".
+All options can be found in "config.txt".
 
 <br/>
 
