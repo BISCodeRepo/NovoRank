@@ -34,13 +34,13 @@ All options can be found in "config.txt".
 
 **- Input data format** 
 
-1. De novo search result
+1. De novo search result (.csv)
 
 Source File|Scan number|Peptide|Score
 ---|---|---|---|
 Hela_1.mgf|10|HKPSVK|85|
 
-2. DB search result
+2. DB search result (.csv)
 
 Source File|Scan number|GT
 ---|---|---|
@@ -84,12 +84,12 @@ python main.py
 <br/>
 
 **2. main_2.py** \
-To extract the features of XCorr and delta XCorr using main_2.py, two inputs are required. The first input is the XCorr calculation result obtained using CometX, and the second input is the output data generated using main.py.
+To extract the features of XCorr and delta XCorr using main_2.py, two inputs are required. The first input is the XCorr calculation result (.tsv) obtained using CometX, and the second input is the output data generated using main.py.
 
 < Calculate XCorr using the following command line of CometX. >
 
 ```c
-CometX.exe
+CometX.exe -X -PParameter.params .\*.mgf
 ``` 
 
 After calculating XCorr,
