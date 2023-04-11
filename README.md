@@ -12,7 +12,7 @@ DeepLC ( https://github.com/compomics/DeepLC )
 Scikit-learn \
 Tensorflow
 
-MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives )
+MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives ) \
 CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
 ## Quick start for potential reviewers
