@@ -18,7 +18,7 @@ NovoRank performs three steps to obtain result, and you can test it using the sa
 
 - Example of running NovoRank 
 
-After downloading all the sample data, collect them in a folder named "sample" obtained from GitHub, and run NovoRank.
+After downloading all the sample data, collect them in a folder named "sample" obtained from NovoRank gitHub repository, and run NovoRank.
 
 <br/>
 
