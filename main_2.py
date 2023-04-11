@@ -1,3 +1,11 @@
+import os
+import warnings
+
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+warnings.filterwarnings(action='ignore')
+
 import json
 
 from Xcorr import *
@@ -28,7 +36,6 @@ new_df['delta_xcorr'] = new_df['xcorr_x'] - new_df['xcorr_y']
 
 # Deep Learning
 new_data, remain_datasets_2 = filtered_len_data(new_df)
-
 # print(tf.__version__)
 # print(tf.test.is_built_with_cuda())
 # # print(tf.sysconfig.get_build_info())
@@ -39,8 +46,11 @@ gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
     try:
         tf.config.experimental.set_memory_growth(gpus[0], True)
+        os.environ["CUDA_VISIBLE_DEVICES"] = "0"
     except RuntimeError as e:
         print(e)
+else:
+    os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 if config['TRAIN'] == True:
     new_data_ = used_dataset(new_data)
