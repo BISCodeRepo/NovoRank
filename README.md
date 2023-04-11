@@ -13,7 +13,7 @@ Scikit-learn \
 Tensorflow
 
 MS-Clust ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives )
-CometX.exe ( this is in-house software modified to calculate XCOrr only. The implementation is based on the Comet software )
+CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
 ## Quick start for potential reviewers
 
