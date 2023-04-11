@@ -12,7 +12,7 @@ DeepLC ( https://github.com/compomics/DeepLC )
 Scikit-learn \
 Tensorflow
 
-MS-Clust ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives )
+MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives )
 CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
 ## Quick start for potential reviewers
@@ -60,7 +60,7 @@ NovoRank assumes that all Cysteines (C) have a fixed modification Carbamidomethy
 As a variable modification, it only allows an oxidation on Methionine as lower letter "m".
 For example, if AM+15.99EENGR, a user must convert the sequence to AmEENGR.
 
-### Step 2. Initial clustering using MS-Clust
+### Step 2. Initial clustering using MS-Cluster
 
 MS-Cluster software and user’s manual are available at http://proteomics.ucsd.edu/software-tools/ms-clusterarchives/. Create a list of the full paths to the input files and call it list.txt. 
 
