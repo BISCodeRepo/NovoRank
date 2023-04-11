@@ -12,89 +12,86 @@ DeepLC ( https://github.com/compomics/DeepLC )
 Scikit-learn \
 Tensorflow
 
-## How to use NovoRank?
+MS-Clust ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives )
+CometX.exe ( this is in-house software modified to calculate XCOrr only. The implementation is based on the Comet software )
 
-NovoRank performs three steps to obtain result, and you can test it using the sample data and pre-trained model provided on 'sample' folder in NovoRank github repository and https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link.
+## Quick start for potential reviewers
 
-- Example of running NovoRank 
+장호야, inference만 바로 해볼 수 있도록 config 파일을 셋팅하고, config_for_reviwer로 명명해주렴.
+main_2.py는 run_novorank.py로 renmae함.
+아래 수정된 README를 읽어보면서 이상한 점은 수정해주고.
 
-After downloading all the sample data, collect them in a folder named 'sample' obtained from NovoRank gitHub repository, and run NovoRank.
+간혹 수정해야 할 부분은 한글로 추가해놨으니 읽고 수정해주렴.
 
-<br/>
+A user can download pre-trained model at https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link and run below command line for quick test:
 
-> < Step 1 > \
-To write the location of input/output data and parameters in a config file ( filling in experimental information ) \
-and perform clustering using MS-cluster software
 
-**- config.txt**
+```c
+python run_novorank.py --config config_for_reviewer.txt
+```
 
-All options can be found in "config.txt".
+## How to use NovoRank
 
-<br/>
+To use NovoRank for your datasets, you HAVE TO train your own model fitting to your datasets.
 
-**- Input data format** 
+### Step 1. Preparation datasets
+As an initial step, a user MUST make their datasets to fit NovoRank input standard.
 
-1. De novo search result (.csv)
+#### De novo search result
+Once you perform de novo search using any tools such as PEAKS, pNovo3 and DeepNovo, you MUST convert the result to below form:
 
 Source File|Scan number|Peptide|Score
 ---|---|---|---|
 Hela_1.mgf|10|HKPSVK|85|
 
-2. DB search result (.csv)
+Note that each column is separated by comma (comma-separated value format (CSV)).
+
+#### Database search result
+NovoRank generates positive and negative labels based on database search result from the same MS/MS spectra used in the de novo search. Therefore, it only needs for training. If a user uses pre-trained model, this file is not needed for the further step. After conducting database search, only reliable PSMs are prepared as below format:
 
 Source File|Scan number|GT
 ---|---|---|
 Hela_1.mgf|3|KPVGAAK| 
 
-<br/>
-NovoRank handles two types of modifications : 
-<br/>
-<br/>
+Note that each column is separated by comma (comma-separated value format (CSV)).
 
-1. Fixed modification : Carbamidomethylation on Cys (C)
-2. Variable modification : Oxidation on Met (m)
+#### Note for post-translational modification notation
+NovoRank assumes that all Cysteines (C) have a fixed modification Carbamidomethylation.
+As a variable modification, it only allows an oxidation on Methionine as lower letter "m".
+For example, if AM+15.99EENGR, a user must convert the sequence to AmEENGR.
 
-In NovoRank, amino acids are represented as "C" and "m" for fixed and variable modifications, respectively.
+### Step 2. Initial clustering using MS-Clust
 
-<br/>
-
-**- MS-Cluster**
-
-MS-Cluster software and user’s manual are available for download at http://proteomics.ucsd.edu/software-tools/ms-clusterarchives/. Create a list of the full paths to the input files and call it list.txt. 
+MS-Cluster software and user’s manual are available at http://proteomics.ucsd.edu/software-tools/ms-clusterarchives/. Create a list of the full paths to the input files and call it list.txt. 
 
 < Clustering to MS-Cluster using the following command line. >
 ```c
 MSClsuter.exe --list list.txt --output-name CLUSTERS --assign-charges
 ``` 
 
-<br/>
+### Step 3. Generation of deep learning input
+Based on the results of both de novo search and MS-clust, NovoRank generates top two candidates.
+The top two candidates are an initial point to train deep learning model.
 
-> < Step 2 > \
-Creating new candidates and generating features ( in this step, two .py were used. )
+A user can set the parameters in 'config.txt' file.
+Parameter|Value|Explanation|Mandatory
+---|---|---|---|
+mgf_path|String|Path of a folder containing MS/MS spectra (MGF format).|Y|
+denovo_result_csv|String|Path of the de novo search result CSV file (see Step 1. Preparation datasets).|Y|
+db_result_csv|String|Path of the database search result CSV file (see Step 1. Preparation datasets).|N|
+precursor_search_ppm|Double|Precursor PPM tolerance.|Y|
+elution_time|Double|A total elution time in the mass spectrometry assay (minutes).|Y|
+training|True or False|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
+features_csv|String|Path of a result feature file as output.|Y|
 
-**1. main.py** \
-To execute the main.py, it is mandatory to have three inputs ( de novo search result, MGF format files consisting of MS/MS spectra, clustering results by MS-Cluster ). DB search result is an essential input for training deep learning model, but it is not mandatory for testing.
-
-As output, create the top two candidate peptides and extract the features excluding XCorr and delta XCorr.
+Note that when training sets as "False", NovoRank ignores "db_result_csv".
 
 ```c
-python main.py
+python gen_feature_top2_candidates.py --config config.txt
 ```
 
-<br/>
-
-**2. main_2.py** \
-To extract the features of XCorr and delta XCorr using main_2.py, two inputs are required. The first input is the XCorr calculation result (.tsv) obtained using CometX, and the second input is the output data generated using main.py.
-
-<br/>
-
-**- CometX** \
-To use CometX, you need to use the CometX.exe located in the 'sample' folder in the NovoRank gitHub repository.
-
-The input for CometX consists of the parameter file (comet.params.new) and the .mgf files. The .mgf files used for CometX can be found in the mgf_XCorr folder inside the save folder where the main.py outputs are stored. The .tsv output files generated by CometX are also created in the mgf_XCorr folder.
-
-The parameter file used in CometX is the same as the parameter file used in comet_version 2019.01 rev. 5. \
-fragment ions parameters need to be changed to suit the experimental conditions.
+### Step 4. XCorr calculation
+As a third-part, NovoRank uses XCorr value as an additional feature.
 
 < Calculate XCorr using the following command line of CometX. >
 
@@ -102,15 +99,29 @@ fragment ions parameters need to be changed to suit the experimental conditions.
 CometX.exe -X -Pcomet.params.new .\save\mgf_XCorr\*.mgf
 ``` 
 
-After calculating XCorr,
+-Pcomet.params.new 파일 대신 다른 파일 이름으로 바꿔야 할 듯.
+왜냐면, Comet을 그냥 실행시키면 Pcomet.params.new 파일을 새로 생성하기 때문에 너가 제공하는 파라메터 파일을 덮어쓸 우려가 있음.
+
+### Step 5. The last step for training/inference of NovoRank
+Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
+
+A user can set the parameters in 'config.txt' file.
+Parameter|Value|Explanation|Mandatory
+---|---|---|---|
+num|Integer|The number of candidates.|Y|
+pre_trained_model|String|A path of pre-trained model h5 file.|N|
+val_size|Double|장호야 설명 추가해줘|Y|
+epoch|Integer|Size of epoch|Y|
+early_stopping|True or False|장호야 설명 추가해줘|Y|
+
+나머지 파라메터에 대한 설명 추가해줘. 지금 보니까 config.txt파일에 xcorr_csv가 output으로 되어 있고, 
+Model training 버전과 inference 버전에 대한 parameter가 구분이 잘 안되어 있는 듯.
+파라메터 받는 부분을 신경써서 잘 나눠보길.
 
 ```c
-python main_2.py
+python run_novorank.py --config config.txt
 ```
 
-<br/>
-
-> < Step 3 > \
 Deep learning model training or testing
 
 The main_2.py executed in Step 2 performs feature extraction and then proceeds to train and test the deep learning model for re-ranking.\
