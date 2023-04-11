@@ -105,7 +105,6 @@ if __name__ == '__main__':
         shutil.rmtree(cometX_mgf_path)
     os.mkdir(cometX_mgf_path)
 
-    #
     if config['TRAIN'] == True: # Train
         train_df = df_feature[df_feature['GT'].notnull()]
         CometX_mgf(train_df, config['MGF_PATH'], cometX_mgf_path)

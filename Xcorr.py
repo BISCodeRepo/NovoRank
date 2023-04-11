@@ -4,7 +4,8 @@ from tqdm import tqdm
 
 def cross_corrlation_info(path_dir):
 
-    file_list = os.listdir(path_dir)
+    fileEx = '.tsv'
+    file_list = [file for file in os.listdir(path_dir) if file.endswith((fileEx))]
 
     temp = []
     append = temp.append

@@ -25,21 +25,19 @@ def read_config(PATH, config_text, config_json):
                     data_configs['CLUSTER_PATH'] = line.split('=')[1].split('#')[0].strip()
                 elif 'cluster_csv' in line:
                     data_configs['CLUSTER_NAME'] = line.split('=')[1].split('#')[0].strip()
-                elif 'denovo_result' in line:
+                elif 'denovo_result_csv ' in line:
                     data_configs['DE_NOVO'] = line.split('=')[1].split('#')[0].strip()
-                elif 'db_result' in line:
+                elif 'db_result_csv ' in line:
                     data_configs['DB'] = line.split('=')[1].split('#')[0].strip()
                 elif 'mgf_path' in line:
                     data_configs['MGF_PATH'] = line.split('=')[1].split('#')[0].strip()
                 elif 'mgf_csv' in line:
                     data_configs['MGF_NAME'] = line.split('=')[1].split('#')[0].strip()
-                elif 'features' in line:
+                elif 'features_csv ' in line:
                     data_configs['RESULT_NAME'] = line.split('=')[1].split('#')[0].strip()
-                elif 'xcorr_path' in line:
-                    data_configs['XCORR_PATH'] = line.split('=')[1].split('#')[0].strip()
-                elif 'xcorr_csv' in line:
+                elif 'xcorr_csv ' in line:
                     data_configs['XCORR_NAME'] = line.split('=')[1].split('#')[0].strip()
-                elif 'pre_trained_model' in line:
+                elif 'pre_trained_model ' in line:
                     data_configs['PRE_TRAINED_MODEL'] = line.split('=')[1].split('#')[0].strip()
                 elif 'val_size' in line:
                     data_configs['VAL_SIZE'] = float(line.split('=')[1].split('#')[0].strip())
@@ -53,5 +51,9 @@ def read_config(PATH, config_text, config_json):
                     else:
                         temp = True
                     data_configs['EARLY_STOPPING'] = temp
+                elif 'model_save_name' in line:
+                    data_configs['MODEL_NAME'] = line.split('=')[1].split('#')[0].strip()
+                elif 'result_name' in line:
+                    data_configs['FINAL_RESULT'] = line.split('=')[1].split('#')[0].strip()
 
     json.dump(data_configs, open(PATH + '//' + config_json, 'w'))

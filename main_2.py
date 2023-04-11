@@ -12,7 +12,8 @@ config = json.load(open(PATH + '\\' + JSON_CONFIGS, 'r'))
 datasets = dataload(config['SAVE_PATH'] + '\\' + config['RESULT_NAME'])
 
 # After Xcorr calculation
-xcorr_info = cross_corrlation_info(config['XCORR_PATH'])
+cometX_results_path = config['SAVE_PATH'] + '\\' + 'mgf_XCorr'
+xcorr_info = cross_corrlation_info(cometX_results_path)
 xcorr_info.to_csv(config['SAVE_PATH'] + '\\' + config['XCORR_NAME'], index=False)
 
 new_datasets = pd.merge(datasets, xcorr_info, on=['Source File', 'Scan number', 'Peptide', 'z'], how='outer')
@@ -90,7 +91,7 @@ if config['TRAIN'] == True:
     print('Train start')
     history = model.fit(data_train, validation_data=data_val, epochs=2, verbose=1) # config['EPOCH']
 
-    model.save(PATH + '\\' + 'trained_NovoRank.h5')
+    model.save(PATH + '\\' + config['MODEL_NAME'])
     print()
     print('Train done')
 else:
@@ -120,6 +121,6 @@ else:
     results_final = pd.concat([results_1, results_2, results_3]).sort_values(by=['Source File', 'Scan number']).reset_index(drop=True)
 
     # new_df.to_csv(config['SAVE_PATH'] + '\\' + config['RESULT_NAME'], index=False)
-    results_final.to_csv(PATH + '\\' + 'test_results.csv', index=False)
+    results_final.to_csv(PATH + '\\' + config['FINAL_RESULT'], index=False)
     print()
     print('Test done')
