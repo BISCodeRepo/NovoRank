@@ -60,7 +60,7 @@ In NovoRank, amino acids are represented as "C" and "m" for fixed and variable m
 
 **- MS-Cluster**
 
-MS-Cluster software is available for download at http://proteomics.ucsd.edu/software-tools/ms-clusterarchives/ . \
+MS-Cluster software and user’s manual are available for download at http://proteomics.ucsd.edu/software-tools/ms-clusterarchives/ . \
 Create a list of the full paths to the input files and call it list.txt. 
 
 < Clustering to MS-Cluster using the following command line. >
@@ -86,10 +86,14 @@ python main.py
 **2. main_2.py** \
 To extract the features of XCorr and delta XCorr using main_2.py, two inputs are required. The first input is the XCorr calculation result (.tsv) obtained using CometX, and the second input is the output data generated using main.py.
 
+<br/>
+
+**- CometX**
+
 < Calculate XCorr using the following command line of CometX. >
 
 ```c
-CometX.exe -X -PParameter.params .\*.mgf
+CometX.exe -X -Pcomet.params.new .\save\mgf_XCorr\*.mgf
 ``` 
 
 After calculating XCorr,
