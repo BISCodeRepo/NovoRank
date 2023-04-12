@@ -81,7 +81,7 @@ denovo_result_csv|String|Path of the de novo search result CSV file (see Step 1.
 db_result_csv|String|Path of the database search result CSV file (see Step 1. Preparation datasets).|N|
 precursor_search_ppm|Float|Precursor PPM tolerance.|Y|
 elution_time|Integer|A total elution time in the mass spectrometry assay (minutes).|Y|
-training|True or False|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
+training|Boolean|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
 features_csv|String|Path of a result feature file as output.|Y|
 
 Note that when training sets as "False", NovoRank ignores "db_result_csv".
@@ -108,11 +108,9 @@ Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step
 A user can set the parameters in 'config.txt' file.
 Parameter|Value|Explanation|Mandatory
 ---|---|---|---|
-num|Integer|The number of candidates.|Y|
 pre_trained_model|String|A path of pre-trained model h5 file.|N|
-val_size|Double|장호야 설명 추가해줘|Y|
+val_size|Float|The validation dataset ratio|Y|
 epoch|Integer|Size of epoch|Y|
-early_stopping|True or False|장호야 설명 추가해줘|Y|
 
 나머지 파라메터에 대한 설명 추가해줘. 지금 보니까 config.txt파일에 xcorr_csv가 output으로 되어 있고, 
 Model training 버전과 inference 버전에 대한 parameter가 구분이 잘 안되어 있는 듯.
