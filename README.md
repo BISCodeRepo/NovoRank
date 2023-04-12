@@ -106,7 +106,7 @@ CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
 
 A user can set the parameters in 'config.txt' file.
-Parameter|Value|Explanation|Training or test
+Parameter|Value|Explanation|Training or Test
 ---|---|---|---|
 mgf_xcorr|String|Path of the XCorr calculation TSV file|Both|
 features_csv|String|Path of the output of gen_feature_top2_candidates.py|Both|
