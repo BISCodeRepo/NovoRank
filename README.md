@@ -87,7 +87,7 @@ features_csv|String|Path of a result feature file as output.|Y|
 Note that when training sets as "False", NovoRank ignores "db_result_csv".
 
 ```c
-python gen_feature_top2_candidates.py --config config.txt
+python gen_feature_top2_candidates.py config.txt
 ```
 
 ### Step 4. XCorr calculation
@@ -119,7 +119,7 @@ Model training 버전과 inference 버전에 대한 parameter가 구분이 잘 �
 파라메터 받는 부분을 신경써서 잘 나눠보길.
 
 ```c
-python run_novorank.py --config config.txt
+python run_novorank.py config.txt
 ```
 
 Deep learning model training or testing
