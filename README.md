@@ -117,6 +117,8 @@ epoch|Integer|Size of epoch|Train|
 model_save_name|String|Save path and h5 file name for  trained model|Train|
 result_name|String|Save path and csv file name for test result|Test|
 
+"Both" means that it is used in both cases of training and testing.
+
 ```c
 python run_novorank.py config_run_novorank.txt
 ```
