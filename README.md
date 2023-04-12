@@ -84,7 +84,7 @@ mgf_xcorr|String|Path of a folder containing MS/MS spectra for XCorr calculation
 mgf_remove|String|Path of a folder containing MS/MS spectra to find internal fragment ions (MGF format).|Y|
 precursor_search_ppm|Float|Precursor PPM tolerance.|Y|
 elution_time|Integer|A total elution time in the mass spectrometry assay (minutes).|Y|
-training|Boolean|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
+training|Boolean|If a user wants to train a model, set it True. Otherwise, set False (test only).|Y|
 features_csv|String|Path of a result feature file as output.|Y|
 
 Note that when training sets as "False", NovoRank ignores "db_result_csv".
@@ -102,22 +102,22 @@ As a third-part, NovoRank uses XCorr value as an additional feature.
 CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 ``` 
 
-### Step 5. The last step for training/inference of NovoRank
+### Step 5. The last step for training/test of NovoRank
 Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
 
 A user can set the parameters in 'config.txt' file.
-Parameter|Value|Explanation|Training or Inference
+Parameter|Value|Explanation|Training or test
 ---|---|---|---|
 mgf_xcorr|String|Path of the XCorr calculation tsv file|Both|
 features_csv|String|Path of the output of gen_feature_top2_candidates.py|Both|
-pre_trained_model|String|A path of pre-trained model h5 file|Inference|
+pre_trained_model|String|A path of pre-trained model h5 file|Test|
 batch_size|Integer|Size of batch|Both|
 val_size|Float|The validation dataset ratio|Training|
 epoch|Integer|Size of epoch|Training|
 model_save_name|String|Save path and h5 file name for  trained model|Training|
-result_name|String|Save path and csv file name for test result|Inference|
+result_name|String|Save path and csv file name for test result|Test|
 
-"Both" means that it is used in both cases of training and inference.
+"Both" means that it is used in both cases of training and Test.
 
 ```c
 python run_novorank.py config_run_novorank.txt
