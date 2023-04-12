@@ -21,9 +21,7 @@ CometX.exe ( this is in-house software modified to calculate XCorr only. The imp
 장호야, inference만 바로 해볼 수 있도록 config 파일을 셋팅하고, config_for_reviwer로 명명해주렴.
 아래 수정된 README를 읽어보면서 이상한 점은 수정해주고.
 
-간혹 수정해야 할 부분은 한글로 추가해놨으니 읽고 수정해주렴.
-
-A user can download pre-trained model at https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link and run below command line for quick test:
+A user can download pre-trained model and test sample data at https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link and run below command line for quick test:
 
 
 ```c
