@@ -108,14 +108,14 @@ Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step
 A user can set the parameters in 'config.txt' file.
 Parameter|Value|Explanation|Training or test
 ---|---|---|---|
-mgf_xcorr|String|Path of the XCorr calculation tsv file|Both|
+mgf_xcorr|String|Path of the XCorr calculation TSV file|Both|
 features_csv|String|Path of the output of gen_feature_top2_candidates.py|Both|
 pre_trained_model|String|A path of pre-trained model h5 file|Test|
 batch_size|Integer|Size of batch|Both|
 val_size|Float|The validation dataset ratio|Training|
 epoch|Integer|Size of epoch|Training|
 model_save_name|String|Save path and h5 file name for  trained model|Training|
-result_name|String|Save path and csv file name for test result|Test|
+result_name|String|Save path and CSV file name for test result|Test|
 
 "Both" means that it is used in both cases of training and Test.
 
