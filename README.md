@@ -106,18 +106,18 @@ CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
 
 A user can set the parameters in 'config.txt' file.
-Parameter|Value|Explanation|Train or Test
+Parameter|Value|Explanation|Training or Inference
 ---|---|---|---|
 mgf_xcorr|String|Path of the XCorr calculation tsv file|Both|
 features_csv|String|Path of the output of gen_feature_top2_candidates.py|Both|
-pre_trained_model|String|A path of pre-trained model h5 file|Test|
+pre_trained_model|String|A path of pre-trained model h5 file|Inference|
 batch_size|Integer|Size of batch|Both|
-val_size|Float|The validation dataset ratio|Train|
-epoch|Integer|Size of epoch|Train|
-model_save_name|String|Save path and h5 file name for  trained model|Train|
-result_name|String|Save path and csv file name for test result|Test|
+val_size|Float|The validation dataset ratio|Training|
+epoch|Integer|Size of epoch|Training|
+model_save_name|String|Save path and h5 file name for  trained model|Training|
+result_name|String|Save path and csv file name for test result|Inference|
 
-"Both" means that it is used in both cases of training and testing.
+"Both" means that it is used in both cases of training and inference.
 
 ```c
 python run_novorank.py config_run_novorank.txt
