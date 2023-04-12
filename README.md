@@ -70,7 +70,7 @@ MSClsuter.exe --list list.txt --output-name CLUSTERS --assign-charges
 Based on the results of both de novo search and MS-clust, NovoRank generates top two candidates.
 The top two candidates are an initial point to train deep learning model.
 
-A user can set the parameters in 'config.txt' file.
+A user can set the parameters in 'config_for_gen_top2.txt' file.
 Parameter|Value|Explanation|Mandatory
 ---|---|---|---|
 mgf_path|String|Path of a folder containing MS/MS spectra (MGF format).|Y|
@@ -102,7 +102,7 @@ CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 ### Step 5. The last step for training/test of NovoRank
 Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
 
-A user can set the parameters in 'config.txt' file.
+A user can set the parameters in 'config_run_novorank.txt' file.
 Parameter|Value|Explanation|Training or Test
 ---|---|---|---|
 mgf_xcorr|String|Path of the XCorr calculation TSV file|Both|
