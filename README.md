@@ -79,8 +79,8 @@ Parameter|Value|Explanation|Mandatory
 mgf_path|String|Path of a folder containing MS/MS spectra (MGF format).|Y|
 denovo_result_csv|String|Path of the de novo search result CSV file (see Step 1. Preparation datasets).|Y|
 db_result_csv|String|Path of the database search result CSV file (see Step 1. Preparation datasets).|N|
-precursor_search_ppm|Double|Precursor PPM tolerance.|Y|
-elution_time|Double|A total elution time in the mass spectrometry assay (minutes).|Y|
+precursor_search_ppm|Float|Precursor PPM tolerance.|Y|
+elution_time|Integer|A total elution time in the mass spectrometry assay (minutes).|Y|
 training|True or False|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
 features_csv|String|Path of a result feature file as output.|Y|
 
