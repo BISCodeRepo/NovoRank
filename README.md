@@ -91,7 +91,7 @@ features_csv|String|Path of a result feature file as output.|Y|
 Note that when training sets as "False", NovoRank ignores "db_result_csv".
 
 ```c
-python gen_feature_top2_candidates.py config.txt
+python gen_feature_top2_candidates.py config_for_gen_top2.txt
 ```
 
 ### Step 4. XCorr calculation
@@ -100,11 +100,8 @@ As a third-part, NovoRank uses XCorr value as an additional feature.
 < Calculate XCorr using the following command line of CometX. >
 
 ```c
-CometX.exe -X -Pcomet.params.new .\save\mgf_XCorr\*.mgf
+CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 ``` 
-
--Pcomet.params.new 파일 대신 다른 파일 이름으로 바꿔야 할 듯.
-왜냐면, Comet을 그냥 실행시키면 Pcomet.params.new 파일을 새로 생성하기 때문에 너가 제공하는 파라메터 파일을 덮어쓸 우려가 있음.
 
 ### Step 5. The last step for training/inference of NovoRank
 Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
@@ -122,7 +119,7 @@ Model training 버전과 inference 버전에 대한 parameter가 구분이 잘 �
 파라메터 받는 부분을 신경써서 잘 나눠보길.
 
 ```c
-python run_novorank.py config.txt
+python run_novorank.py config_run_novorank.txt
 ```
 
 Deep learning model training or testing
