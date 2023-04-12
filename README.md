@@ -114,8 +114,8 @@ pre_trained_model|String|A path of pre-trained model h5 file|Test|
 batch_size|Integer|Size of batch|Both|
 val_size|Float|The validation dataset ratio|Train|
 epoch|Integer|Size of epoch|Train|
-model_save_name|String|A path to save the trained model|Both|
-result_name|String|Size of batch|Both|
+model_save_name|String|A path to save the trained model|Train|
+result_name|String|Size of batch|Test|
 
 나머지 파라메터에 대한 설명 추가해줘. 지금 보니까 config.txt파일에 xcorr_csv가 output으로 되어 있고, 
 Model training 버전과 inference 버전에 대한 parameter가 구분이 잘 안되어 있는 듯.
