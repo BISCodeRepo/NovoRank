@@ -23,7 +23,6 @@ CometX.exe ( this is in-house software modified to calculate XCorr only. The imp
 
 A user can download pre-trained model and test sample data at https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link and run below command line for quick test:
 
-
 ```c
 python run_novorank.py --config config_for_reviewer.txt
 ```
