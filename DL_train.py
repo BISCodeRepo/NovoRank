@@ -8,7 +8,6 @@ from numba import jit
 import numpy as np
 import os
 
-
 @jit
 def make_aa(element):
     return np.zeros(element, dtype=np.int8)

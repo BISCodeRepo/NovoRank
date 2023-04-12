@@ -1,8 +1,12 @@
 import os
+import warnings
 import numpy as np
 import pandas as pd
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+warnings.filterwarnings(action='ignore')
 
 from tqdm import tqdm
 from deeplc import DeepLC

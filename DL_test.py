@@ -1,8 +1,5 @@
 from DL_train import *
-import warnings
 import os
-
-warnings.filterwarnings(action='ignore')
 
 def filtered_len_data(dataset):
 
