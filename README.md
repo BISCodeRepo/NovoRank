@@ -81,8 +81,8 @@ mgf_path|String|Path of a folder containing MS/MS spectra (MGF format).|Y|
 denovo_result_csv|String|Path of the de novo search result CSV file (see Step 1. Preparation datasets).|Y|
 db_result_csv|String|Path of the database search result CSV file (see Step 1. Preparation datasets).|N|
 cluster_result_path|String|Path of the clustering result from MS-Cluster.|Y|
-MGF path for calculation of XCorr|String|Path of the mgf file for XCorr calculation.|Y|
-MGF path for find internal fragment ions.|String|Path of the MGF file to find internal fragment ions.|Y|
+mgf_xcorr|String|Path of a folder containing MS/MS spectra for XCorr calculation (MGF format).|Y|
+mgf_remove|String|Path of a folder containing MS/MS spectra to find internal fragment ions (MGF format).|Y|
 precursor_search_ppm|Float|Precursor PPM tolerance.|Y|
 elution_time|Integer|A total elution time in the mass spectrometry assay (minutes).|Y|
 training|Boolean|If a user wants to train a model, set it True. Otherwise, set False (inference only).|Y|
