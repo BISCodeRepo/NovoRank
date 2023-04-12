@@ -3,7 +3,7 @@ NovoRank is a machine learning/deep learning-based algorithm that post-processes
 
 - NovoRank is implemented and tested with
 
-Python 3.9 \
+Python >= 3.7 \
 Numpy 1.21.0 \
 Numba \
 Pandas \
