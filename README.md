@@ -109,11 +109,11 @@ training|Boolean|If a user wants to train a model, set it True. Otherwise, set F
 mgf_path|String|Path of a folder containing MS/MS spectra (MGF format).|Both|
 mgf_xcorr|String|Path of the XCorr calculation TSV file.|Both|
 features_csv|String|Path of the output of gen_feature_top2_candidates.py.|Both|
-pre_trained_model|String|A path of pre-trained model h5 file.|Test|
 batch_size|Integer|Size of batch.|Both|
 val_size|Float|The validation dataset ratio.|Training|
 epoch|Integer|Size of epoch.|Training|
 model_save_name|String|Save path and h5 file name for  trained model.|Training|
+pre_trained_model|String|A path of pre-trained model h5 file.|Test|
 result_name|String|Save path and CSV file name for test result.|Test|
 
 "Both" means that it is used in both cases of training and Test.
