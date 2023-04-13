@@ -16,7 +16,7 @@ from CometX import *
 # Press the green button in the gutter to run the script.
 
 parser = argparse.ArgumentParser(description='Description')
-parser.add_argument('--config', help='config text file for gen_feature_top2_candidates.py')
+parser.add_argument('config', help='config text file for gen_feature_top2_candidates.py')
 
 if __name__ == '__main__':
 
@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     # read config file
     print('Read config file')
-    config = read_config(args.arg1)
+    config = read_config(args.config)
     print()
 
     # pre-processing
@@ -37,14 +37,10 @@ if __name__ == '__main__':
 
     cluster_info = Cluster_csv(config['CLUSTER_PATH'], cluster_list, index_dic)
 
-    if os.path.exists(config['SAVE_PATH']):
-        shutil.rmtree(config['SAVE_PATH'])
-    os.mkdir(config['SAVE_PATH'])
-
     Spec_count(config['MGF_PATH'])
     mgf_info = Extract_mgf_info(config['MGF_PATH'])
 
-    remove_path = config['SAVE_PATH']+'\\'+'mgf_remove'
+    remove_path = config['MGF_REMOVE']
     if os.path.exists(remove_path):
         shutil.rmtree(remove_path)
     os.mkdir(remove_path)
@@ -89,11 +85,11 @@ if __name__ == '__main__':
     df_feature['RT'] = df_feature['RT'] / (config['ELUTION_TIME']/60)
     df_feature = rt_feature_training(df_feature)
 
-    df_feature.to_csv(config['SAVE_PATH'] + '\\' + config['RESULT_NAME'], index=False)
+    df_feature.to_csv(config['RESULT_NAME'], index=False)
 
     print()
 
-    cometX_mgf_path = config['SAVE_PATH'] + '\\' + 'mgf_XCorr'
+    cometX_mgf_path = config['MGF_XCORR']
     if os.path.exists(cometX_mgf_path):
         shutil.rmtree(cometX_mgf_path)
     os.mkdir(cometX_mgf_path)

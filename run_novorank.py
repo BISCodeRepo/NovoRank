@@ -13,16 +13,16 @@ from NEW_candidates import *
 from DL_test import *
 
 parser = argparse.ArgumentParser(description='Description')
-parser.add_argument('config', help='config text file for gen_feature_top2_candidates.py')
+parser.add_argument('config', help='config text file for run_novorank.py')
 
 args = parser.parse_args()
 
-configs = read_config(args.arg1)
+configs = read_config(args.config)
 
-datasets = dataload(configs['SAVE_PATH'] + '\\' + configs['RESULT_NAME'])
+datasets = dataload(configs['RESULT_NAME'])
 
 # After Xcorr calculation
-cometX_results_path = configs['SAVE_PATH'] + '\\' + 'mgf_XCorr'
+cometX_results_path = configs['XCORR_RESULT']
 xcorr_info = cross_corrlation_info(cometX_results_path)
 
 new_datasets = pd.merge(datasets, xcorr_info, on=['Source File', 'Scan number', 'Peptide', 'z'], how='outer')
@@ -100,6 +100,7 @@ if configs['TRAIN'] == True:
 
     # model.summary()
     print('Train start')
+    print()
     history = model.fit(data_train, validation_data=data_val, epochs=2, verbose=1) # configs['EPOCH']
 
     model.save(configs['MODEL_NAME'])
@@ -118,6 +119,7 @@ else:
     data_test = data_test.batch(configs['BATCH'])
 
     print('Test start')
+    print()
     output = pre_trained_model.predict(data_test, verbose=1)
 
     new_data['predict'] = output
@@ -131,7 +133,6 @@ else:
 
     results_final = pd.concat([results_1, results_2, results_3]).sort_values(by=['Source File', 'Scan number']).reset_index(drop=True)
 
-    # new_df.to_csv(config['SAVE_PATH'] + '\\' + config['RESULT_NAME'], index=False)
     results_final.to_csv(configs['FINAL_RESULT'], index=False)
     print()
     print('Test done')
