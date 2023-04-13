@@ -3,8 +3,7 @@ NovoRank is a machine learning/deep learning-based algorithm that post-processes
 
 - NovoRank is implemented and tested with
 
-Python >= 3.7
-
+Python==3.9 \
 requirements.txt
 
 and
@@ -17,6 +16,22 @@ CometX.exe ( this is in-house software modified to calculate XCorr only. The imp
 
 A user can download pre-trained model and test sample data at https://drive.google.com/drive/folders/1KkhvxgybDQISy8qfGzgUq6Q1pg53xBm5?usp=share_link and run below command line for quick test:
 
+- Create and activate an Anaconda virtual environment.
+```c
+conda create -n [NAME] python==3.9
+conda activate [NAME]
+```
+
+<br/>
+
+- Install all packages in the requirements.txt file with the following command.
+```c
+pip install -r requirements.txt
+```
+
+<br/>
+
+- Run run_novorank.py.
 ```c
 python run_novorank.py .\test\config_for_reviewer.txt
 ```
