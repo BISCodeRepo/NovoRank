@@ -1,7 +1,11 @@
 #
 # Input
 #
+training = False
 batch_size = 64
+
+# MGF files
+mgf_path = .\sample\mgf
 
 #  .tsv files containing the XCorr calculation results
 xcorr_result = .\sample\mgf_XCorr
