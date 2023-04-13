@@ -9,7 +9,7 @@ requirements.txt
 
 and
 
-DeepLC ( https://github.com/compomics/DeepLC )
+DeepLC ( https://github.com/compomics/DeepLC ) \
 MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives ) \
 CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
