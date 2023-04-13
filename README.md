@@ -94,7 +94,7 @@ CometX.exe -X -Pcomet.params .\mgf_XCorr\*.mgf
 ``` 
 
 ### Step 5. The last step for training/test of NovoRank
-Lastly, NovoRank takes two inputs such as feature.csv and XCorr values from Step 3 and 4, respectively.
+Lastly, NovoRank takes three inputs: feature.csv and XCorr values obtained from Steps 3 and 4, respectively, as well as the MGF files.
 
 A user can set the parameters in 'config_run_novorank.txt' file.
 Parameter|Value|Explanation|Training or Test
