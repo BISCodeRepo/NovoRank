@@ -5,14 +5,11 @@ NovoRank is a machine learning/deep learning-based algorithm that post-processes
 
 Python >= 3.7
 
-Numpy 1.21.0 \
-tqdm \
-Numba \
-Pandas \
-Scikit-learn \
-Tensorflow \
-DeepLC ( https://github.com/compomics/DeepLC )
+requirements.txt
 
+and
+
+DeepLC ( https://github.com/compomics/DeepLC )
 MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives ) \
 CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
