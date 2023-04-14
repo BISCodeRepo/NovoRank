@@ -133,14 +133,13 @@ result_name|String|Save path and CSV file name for test result.|Test|
 python run_novorank.py config_run_novorank.txt
 ```
 
-Deep learning model training or test
+#### Deep learning model for re-ranking.
 
-The run_novorank.py executed in Step 5 performs feature extraction and then proceeds to training or test the deep learning model for re-ranking.\
 The deep learning model only handles peptides with a maximum mass of 5000 Da and a length of 40 or less.
 
-**1. Testing** \
+- Testing \
 Using a pre-trained model, perform testing and output a single assigned peptide for each spectrum as the result.
 
-**2. Training** \
+- Training \
 The deep learning model is trained based on the hyper-parameters set in the config_run_novorank.txt. \
 The trained model is saved in the .h5 format as the output.
