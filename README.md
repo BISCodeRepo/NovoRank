@@ -12,11 +12,11 @@ DeepLC ( https://github.com/compomics/DeepLC ) \
 MS-Cluster ( http://proteomics.ucsd.edu/software-tools/ms-clusterarchives ) \
 CometX.exe ( this is in-house software modified to calculate XCorr only. The implementation is based on the Comet software )
 
-All data used in the experiment can be downloaded from the 'sample' folder in the NovoRank GitHub repository and https://drive.google.com/drive/folders/1iLJP7NpX9PXnIXjDbx39OGloWh5XMo3p?usp=share_link.
+All data used in the experiment can be downloaded from the 'sample' folder in the NovoRank GitHub repository and https://drive.google.com/drive/folders/13jir3-QLcAVGtUe84Tfp5utctnHRI-5Q?usp=share_link.
 
 ## Quick start for potential reviewers
 
-A user can download pre-trained model and test sample data at https://drive.google.com/drive/folders/1KkhvxgybDQISy8qfGzgUq6Q1pg53xBm5?usp=share_link and run below command line for quick test:
+A user can download pre-trained model and test sample data at https://drive.google.com/drive/folders/1ICmLBRBhJGdImi4aPwlQVS6pfKT-Z8sI?usp=share_link and run below command line for quick test:
 
 - Create and activate an Anaconda virtual environment.
 ```c
