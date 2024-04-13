@@ -74,7 +74,7 @@ MS-Cluster software and user’s manual are available at http://proteomics.ucsd.
 
 < Clustering to MS-Cluster using the following command line. >
 ```c
-MSClsuter.exe --list list.txt --output-name CLUSTERS --assign-charges
+MSCluster.exe --list list.txt --output-name CLUSTERS --assign-charges
 ``` 
 
 ### Step 3. Generation of deep learning input
