@@ -1,4 +1,23 @@
 # NovoRank
+
+NovoRank is a post-processing tool designed to enhance the accuracy of de novo peptide sequencing, which directly infers peptide sequences from tandem mass spectra without relying on databases. Existing de novo sequencing tools often lead to incorrect peptide identifications due to their dependence on imperfect scoring functions. To address this issue, NovoRank utilizes spectral clustering and machine learning techniques to assign more accurate peptide sequences to spectra. NovoRank improves the output of various de novo sequencing tools and enhances recall and precision at the PSM level.
+<hr>
+
+
+
+## Rights and Permissions
+<pre>
+- NovoRank © 2024 is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International.
+  This license requires that reusers give credit to the creator. It allows reusers to distribute, 
+  remix, adapt, and build upon the material in any medium or format, for noncommercial purposes only. 
+  If others modify or adapt the material, they must license the modified material under identical terms.
+</pre>
+
+
+
+
+
+# NovoRank
 NovoRank is a machine learning/deep learning-based algorithm that post-processes the De novo sequencing results.
 
 - NovoRank is implemented and tested with
